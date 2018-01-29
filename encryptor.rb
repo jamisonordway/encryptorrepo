@@ -1,36 +1,31 @@
 class Encryptor
 
-rotation = 14
-characters = (' '..'z').to_a
-rotated_characters = characters.rotate(rotation)
-Hash[characters.zip(rotated_characters)]
+  def cipher(letter, rotation)
+    letters = ('a'..'z').to_a
+    rotated_characters = letters.rotate(rotation)
 
-def cipher(rotation)
-  characters = (' '..'z').to_a
-  rotated_characters = characters.rotate(rotation)
-  Hash[characters.zip(rotated_characters)]
-end
+  end
 
 def encrypt_letter(letter, rotation)
-    cipher_for_rotation = cipher(rotation)
-    cipher_for_rotation[letter]
+  characters = ('a'..'z').to_a
+  characters.index(letter)
+  cipher(letter, rotation)
 end
 
 def encrypt(string, rotation)
-  letters = string.split("")
-  results = letters.collect do |letter|
-  encrypted_letter = encrypt_letter(letter, rotation)
-end
+  # 1. Cut the input string into letters
+letters = string.split("")
+  # 2. Encrypt those letters one at a time
+letters.each do |letter|
+  results = []
+  encrypted_letters = cipher(letters, rotation)
+  results.push(encrypted_letters)
+  # Join the results back together in one string
   results.join
-end
 
-def decrypt(string, rotation)
-  letters = string.split("")
-  results = letters.collect do |letter|
-  encrypted_letter = encrypt_letter(letter)
+
 end
-  results.join
 end
 
 
-  end
+end
