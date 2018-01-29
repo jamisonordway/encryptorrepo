@@ -17,9 +17,9 @@ def encrypt(string, rotation)
 letters = string.split("")
   # 2. Encrypt those letters one at a time, gathering results
 letters.each do |letter|
-  encrypt_letter(letter, rotation)
+  encrypted = encrypt_letter(letter, rotation)
   results = []
-  results.push
+  results.push(encrypted)
 
   # Join the results back together in one string
   results.join
